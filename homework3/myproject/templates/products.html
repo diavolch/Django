@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{ context }{% endblock %}
+
+{% block content %}
+{% for i in productr %}
+    <table>
+        <tr>{{ i }}</tr>
+    </table>
+{% endfor %}
+{% endblock %}
