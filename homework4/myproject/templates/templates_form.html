@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ context }}{% endblock %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class='alert alert-{{ message.tags }}'{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="content form_style">
+    <div class="form_container">
+        <h3>{{ form_title }}</h3>
+    </div>
+    <div class="form_container">
+        <form id="register" enctype="multipart/form-data" method="post" class="form_v" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" class="button">
+        </form>
+    </div>
+</div>
+{% endblock %}
