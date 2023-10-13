@@ -12,20 +12,20 @@ from .models import Customer, Product, Order
 
 
 def index(request):
-    return HttpResponse('Главная страница')
+    return render(request, 'base.html')
 
 
 def get_all_customers(request):
-    context = {'customers': 'Customers'}
+    context = 'Customers'
     customers = Customer.objects.all()
     return render(request, 'customers.html', {'context': context, 'customers': customers})
 
 
-# def get_all_products(request):
-#     context = {'products': 'Products'}
-#     products = Product.objects.all()
-#     return render(request, 'products.html', {'context': context, 'products': products})
-#
+def get_all_products(request):
+    context = 'Products'
+    products = Product.objects.all()
+    return render(request, 'products.html', {'context': context, 'products': products})
+
 
 def get_orders(request, customer_id, days):
     context = {'orders': 'Orders'}

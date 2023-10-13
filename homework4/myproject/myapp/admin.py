@@ -28,7 +28,7 @@ class ProductAdmin(admin.ModelAdmin):
         ('Общие параметры',
          {'classes': ['wide'],
           'description': 'тут общие параметры',
-          'fields': ['title', 'price']}),
+          'fields': ['title', 'description', 'price', 'count', 'img']}),
     ]
     search_fields = ['title']
     list_filter = ['count']

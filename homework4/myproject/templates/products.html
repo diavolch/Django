@@ -1,13 +1,40 @@
 {% extends 'base.html' %}
 
-{% block title %}{ context }{% endblock %}
+{% block title %}{{ context }}{% endblock %}
 
 {% block content %}
-{% for i in products %}
-    <table>
-        <tr>{{ i }}</tr>
-    </table>
-    <img class="col-1" src="{{ i.img.url }}">
+        <div class="container">
 
-{% endfor %}
+            <div class="row mb-5">
+                <div class="col-md-9 order-2">
+                    <div class="row mb-5">
+
+                        {% for i in products %}
+                        <div class="col-sm-6 col-lg-4 mb-4 aos-init aos-animate" data-aos="fade-up">
+                            <div class="block-4 text-center border">
+                                <figure class="block-4-image">
+                                    <a href="shop-single.html"><img src="{{ i.img.url }}" alt="Image placeholder"
+                                                                    class="img-fluid"></a>
+                                </figure>
+                                <div class="block-4-text p-4">
+                                    <h3><a href="shop-single.html">{{ i.title }}</a></h3>
+                                    <p class="mb-0">{{ i.description }}</p>
+                                    <p class="text-primary font-weight-bold">{{ i.price }}$</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
 {% endblock %}
